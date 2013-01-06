@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RandomGenFinal.DataProvider">
+    <Position X="3.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAEAAAAAAAAAAAAEAAAAEAAAQ=</HashCode>
+      <FileName>DataProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomGenFinal.Defaults">
+    <Position X="8.75" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAA=</HashCode>
+      <FileName>Defaults.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomGenFinal.DocFeatures">
+    <Position X="4.5" Y="9.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAMAAAhAAAAAAgAAgAAACAAAAAAAAA=</HashCode>
+      <FileName>DocFeatures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomGenFinal.DocumentCreator">
+    <Position X="7.5" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAIBgAAAAAAAAAAAAAQAAAAQQAAAAAAAAAAAACAA=</HashCode>
+      <FileName>DocumentCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomGenFinal.DocumentTree">
+    <Position X="3.5" Y="2" Width="1.75" />
+    <Members>
+      <Method Name="CalculateLeafNodes" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAACAAAAAAEAAAAAAAAAQAAAAAgAAAAAA=</HashCode>
+      <FileName>DocumentTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomGenFinal.Feature">
+    <Position X="8.75" Y="2" Width="2.5" />
+    <Members>
+      <Field Name="styles" Hidden="true" />
+      <Field Name="subElements" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAEAAAAAAEAAAAAAAAQAQAAAgUAgAAAAAgAAAAAAA=</HashCode>
+      <FileName>Feature.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomGenFinal.FeatureFactory">
+    <Position X="3.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FeatureFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomGenFinal.Randomizer">
+    <Position X="5.25" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAABAAQAAAQAACAAEAA=</HashCode>
+      <FileName>Randomizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomGenFinal.RunConfig">
+    <Position X="6.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAEAAAAgIAEAAAAAAAEAAAAAAIAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>RunConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomGenFinal.Style">
+    <Position X="6" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Style.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomGenFinal.XmlWriter">
+    <Position X="10.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAAgAAAgAAAAAA=</HashCode>
+      <FileName>XmlWriter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

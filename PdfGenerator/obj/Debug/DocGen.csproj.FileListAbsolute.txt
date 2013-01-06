@@ -1,0 +1,5 @@
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenTest\DocGen\bin\Debug\DocGen.dll
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenTest\DocGen\bin\Debug\DocGen.pdb
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenTest\DocGen\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenTest\DocGen\obj\Debug\DocGen.dll
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenTest\DocGen\obj\Debug\DocGen.pdb

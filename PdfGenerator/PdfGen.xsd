@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="pdf"  elementFormDefault="unqualified" attributeFormDefault="unqualified"   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!--Basic Attribute declarations-->
+  <xs:attribute name="horizontalAlignment">
+    <xs:simpleType >
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Left"/>
+        <xs:enumeration value="Right"/>
+        <xs:enumeration value="Center"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:attribute name="verticalAlignment">
+    <xs:simpleType >
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Top"/>
+        <xs:enumeration value="Center"/>
+        <xs:enumeration value="Bottom"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+
+  <!--Enumerations-->
+  <xs:simpleType name="FontFormatsEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bold" />
+      <xs:enumeration value="Italic" />
+      <xs:enumeration value="Underlined" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="JustificationEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Center" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="Justified" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TableBordersEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Single" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ElementWidthTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Absolute" />
+      <xs:enumeration value="Percentage" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HeadingTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="H1" />
+      <xs:enumeration value="H2" />
+      <xs:enumeration value="H3" />
+      <xs:enumeration value="H4" />
+      <xs:enumeration value="H5" />
+      <xs:enumeration value="H6" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+
+
+  <!--Root-->
+  <xs:element name="document">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadata" type="_metadata" maxOccurs="1" minOccurs="0" />
+        <xs:group ref="body" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="autoGenerateToc" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:group name="body">
+    <xs:choice>
+      <xs:element name="chapter" type="_chapter"/>
+      <xs:element name="multiColumnSection" type="_multiColumnSection" />
+      <xs:element name="section" type="_section" />
+      <xs:group ref="DocumentElements"/>
+    </xs:choice>
+  </xs:group>
+
+
+  <!--Metadata definition-->
+    <xs:complexType name="_metadata">
+      <xs:sequence>
+        <xs:element name="tag" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="title" type="xs:string"/>
+      <xs:attribute name="subject" type="xs:string"/>
+      <xs:attribute name="author" type="xs:string"/>
+      <xs:attribute name="creator" type="xs:string"/>
+    </xs:complexType>
+
+
+
+  <!--Chapter definition-->
+    <xs:complexType name="_chapter">
+      <xs:group ref="chapterContent" maxOccurs="unbounded" />
+      <xs:attribute name="title" type="xs:string"/>
+      <xs:attribute name="chapterNumber" type="xs:int"/>
+    </xs:complexType>
+
+
+  <xs:group name="chapterContent">
+    <xs:choice>
+      <xs:element name="section" type="_section" maxOccurs="unbounded"/>
+      <xs:element name="multiColumnSection" type="_multiColumnSection" maxOccurs="unbounded" />
+    </xs:choice>
+  </xs:group>
+
+
+  <!--section definition-->
+  <xs:complexType name="_section" >
+    <xs:group ref="DocumentElements" minOccurs="1" maxOccurs="unbounded"/>
+  </xs:complexType>
+
+  <xs:group name="DocumentElements">
+    <xs:choice>
+      <xs:element name="paragraph" type="_paragraph" maxOccurs="unbounded"/>
+      <xs:element name="image" type="_image" maxOccurs="unbounded"/>
+      <xs:element name="table" type="_table" maxOccurs="unbounded"/>
+      <xs:element name="heading" type="_heading" maxOccurs="unbounded"/>
+      <xs:element name ="list" type="_list" maxOccurs="unbounded"/>
+      <xs:element name="text" type="Text" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:group>
+
+
+  <!--Multicolumn section-->
+    <xs:complexType name="_multiColumnSection">
+      <xs:complexContent>
+        <xs:extension base="_section">
+          <xs:attribute name="numberOfColumns" type="xs:int"  use="required"/>
+          <xs:attribute name="gutterSize" type="xs:int" />
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+  
+  <!--List Definition-->
+    <xs:complexType name="_list">
+      <xs:sequence>
+        <xs:element name="listItem"  type="_listItem" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="ordered" type="xs:boolean"/>
+      <xs:attribute name="label" type="xs:string"/>
+    </xs:complexType>
+
+  <xs:complexType name="_listItem">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="label" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+
+  <!--Definitions regarding to paragraph-->
+
+    <xs:complexType name="_paragraph">
+      <xs:sequence>
+        <xs:element name="font" type="Font" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="text" type="Text" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="leading" type="xs:float"/>
+      <xs:attribute name="spacingBefore" type="xs:float"/>
+      <xs:attribute name="spacingAfter" type="xs:float"/>
+      <xs:attribute name="justification" type="JustificationEnum"/>
+    </xs:complexType>
+ 
+
+  <xs:complexType name="Text">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="size" type="xs:int"/>
+        <xs:attribute name="bold" type="xs:boolean" default="false"/>
+        <xs:attribute name="italic" type="xs:boolean" default="false"/>
+        <xs:attribute name="underlined" type="xs:boolean" default="false"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+
+  <xs:complexType name="Font">
+    <xs:sequence>
+      <xs:element name="fontFormat" type="FontFormatsEnum" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="size" type="xs:int"/>
+    <xs:attribute name="bold" type="xs:boolean" default="false"/>
+    <xs:attribute name="italic" type="xs:boolean" default="false"/>
+    <xs:attribute name="underlined" type="xs:boolean" default="false"/>
+  </xs:complexType>
+
+  
+  <!--Heading Definition-->
+    <xs:complexType name="_heading">
+      <xs:complexContent>
+        <xs:extension base="_paragraph" >
+          <xs:attribute name="headingType" type="HeadingTypeEnum"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  
+
+  <!--Image Definitions-->
+
+    <xs:complexType name="_image">
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="absolutePositioning" type="xs:boolean"/>
+          <xs:attribute name="width" type="xs:float" />
+          <xs:attribute name="height" type="xs:float"/>
+          <xs:attribute name="absolutePositionX" type="xs:float"/>
+          <xs:attribute name="absolutePositionY" type="xs:float"/>
+          <xs:attribute ref="horizontalAlignment"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+
+
+
+  <!--Table definitions-->
+    <xs:complexType name="_table">
+      <xs:sequence maxOccurs="unbounded">
+        <xs:element name="headings" type="TableRow" maxOccurs="1" minOccurs="0" />
+        <xs:element name="tableRow" type="TableRow" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="borderType" type="TableBordersEnum"/>
+      <xs:attribute name="widthUnits" type="ElementWidthTypeEnum" />
+      <xs:attribute name="width" type="xs:float" />
+      <xs:attribute name="height" type="xs:float" />
+      <xs:attribute name="caption" type="xs:string" />
+    </xs:complexType>
+
+
+  <xs:complexType name="TableRow">
+    <xs:sequence>
+      <xs:element name="tableCell" type="TableCell" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--<xs:complexType name="Headings">
+    <xs:complexContent>
+      <xs:extension base="TableRow">
+        <xs:attribute name
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>-->
+
+
+  <xs:complexType name="TableCell">
+    <xs:group ref="cellItems" maxOccurs="unbounded" />
+    <xs:attribute ref="verticalAlignment"/>
+  </xs:complexType>
+
+
+  <xs:group name="cellItems">
+    <xs:choice>
+      <xs:element name="text" type="Text"/>
+      <xs:element name="paragraph" type="_paragraph"/>
+      <xs:element name="image" type="_image"/>
+      <xs:element name="table" type="_table"/>
+    </xs:choice>
+  </xs:group>
+
+
+</xs:schema>

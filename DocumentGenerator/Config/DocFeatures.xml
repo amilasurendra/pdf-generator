@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<docFeatures>
+
+  <relations>
+
+    <relation parent="document" child="table" />
+    <relation parent="document" child="paragraph" />
+    <relation parent="document" child="image" />
+    <relation parent="document" child="section" />
+    <relation parent="document" child="chapter" />
+    <relation parent="document" child="text" />
+
+    <relation parent="section" child="paragraph" />
+    <relation parent="section" child="heading" />
+    <relation parent="section" child="image" />
+
+    <relation parent="multiColumnSection" child="image" />
+    <relation parent="multiColumnSection" child="heading" />
+    <relation parent="multiColumnSection" child="paragraph" />
+
+    <relation parent="chapter" child="section" />
+    <relation parent="chapter" child="multiColumnSection" />
+
+    <relation parent="paragraph" child="text" />
+    <relation parent="heading" child="text"/>
+
+    <relation parent="table" child="headings" />
+    <relation parent="table" child="tableRow" />
+    
+    <relation parent="headings" child="tableCell" />
+    <relation parent="tableRow" child="tableCell" />
+    
+    <relation parent="tableCell" child="text" />
+    <relation parent="tableCell" child="table" />
+    <relation parent="tableCell" child="image" />
+    <relation parent="tableCell" child="paragraph" />
+
+
+    <!--Feature Extension (Adding List)-->
+    <relation parent="document" child="list" />
+    <relation parent="list" child="listItem"/>
+    <!--Feature Extension-->
+    
+    
+    <!--Invalid-->
+    <!--<relation parent="tableCell" child="section" />
+    <relation parent="tableCell" child="listItem" />
+    <relation parent="tableCell" child="nonExt" />
+    <relation parent="document" child="paradgraph" />
+    <relation parent="paradgraph" chils="nonExt" />-->
+    <!--Invalid-->
+
+
+
+  </relations>
+
+
+  <!--Styles does not contain any constraints that affect cardinality of child nodes-->
+  <styles>
+
+    <feature name="paragraph">
+      <justification type="string"></justification>
+      <leading type="float" />
+    </feature>
+
+    <feature name="text">
+      <bold type="boolean"></bold>
+      <italic type="boolean"></italic>
+      <underlined type="boolean"></underlined>
+    </feature>
+
+    <feature name="table">
+      <alignment type="string"></alignment>
+      <columnCount type="int" />
+    </feature>
+
+    <feature name="heading">
+      <headingType type="enum" values="H1,H2,H3,H4,H5,H6" />
+    </feature>
+
+    <feature name="image">
+      <height type="float"/>
+      <width type="float" />
+      <horizontalAlignment type="enum" values="Center,Left,Right"></horizontalAlignment> 
+    </feature>
+
+    <!--Feature Extension-->
+    <feature name="list">
+      <ordered type="boolean" />
+      <label type="string" />
+    </feature>
+    <!--Feature Extension-->
+
+
+    <!--Invalid-->
+    
+    <!--Invalid-->
+
+  </styles>
+
+
+</docFeatures>

@@ -1,0 +1,7 @@
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenerator\DocGen\bin\Release\DocGen.dll.config
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenerator\DocGen\bin\Release\DocGen.dll
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenerator\DocGen\bin\Release\DocGen.pdb
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenerator\DocGen\bin\Release\itextsharp.dll
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenerator\DocGen\obj\Release\ResolveAssemblyReference.cache
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenerator\DocGen\obj\Release\DocGen.dll
+C:\Users\v-amsure\Documents\Visual Studio 2010\Projects\DocGenerator\DocGen\obj\Release\DocGen.pdb
